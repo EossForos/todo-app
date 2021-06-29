@@ -8,7 +8,7 @@ import DB from './assets/db'
 function App() {
     const [lists, setLists] = useState(
         DB.lists.map(item => {
-            item.color = DB.colors.filter(color => color.id === item.colorId)[0].name;
+            item.color = DB.colors.find(color => color.id === item.colorId).name;
             return item;
         }));
 
@@ -16,6 +16,7 @@ function App() {
         const newList = [...lists, obj];
         setLists(newList);
     };
+
 
     return (
         <div className="todo">
