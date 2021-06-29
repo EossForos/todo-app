@@ -10,7 +10,7 @@ import Badge from "../Badge";
 const List = ({ items, isRemovable, onClick, onRemove }) => {
 
     const removeList = (item) => {
-        if (window.confirm('Вы действительно хотите удалить список ?')) {
+        if (window.confirm(`Вы действительно хотите удалить список ${item.name} ?`)) {
             onRemove(item);
         }
     };
