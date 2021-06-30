@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import List from "../List";
 import Badge from '../Badge';
 
@@ -8,21 +8,27 @@ import "./AddList.scss";
 
 const AddList = ({colors, onAdd}) => {
     const [visiblePopup, setVisiblePopup] = useState(false);
-    const [selectedColor, selectColor] = useState(colors[0].id);
+    const [selectedColor, selectColor] = useState(3);
     const [inputValue, setInputValue] = useState('');
+
+    useEffect(() => {
+        if (Array.isArray(colors)) {
+            selectColor(colors[0].id)
+        }
+    }, [colors]);
 
     const onClose = () => {
         setVisiblePopup(false);
         setInputValue('');
         selectColor(colors[0].id)
-    }
+    };
 
     const addList = () => {
         if (!inputValue) {
             alert('Введите название списка !');
             return;
         }
-        const color = colors.filter(c => c.id === selectedColor )[0].name;
+        const color = colors.find(c => c.id === selectedColor ).name;
         onAdd({name: inputValue, color});
         onClose()
     };
