@@ -24,6 +24,11 @@
       "id": 5,
       "name": "Личное",
       "colorId": 1
+    },
+    {
+      "name": "Чики-Мони",
+      "colorId": 7,
+      "id": 6
     }
   ],
   "tasks": [
@@ -62,24 +67,6 @@
       "text": "Купить 1984!",
       "completed": false,
       "id": 10
-    },
-    {
-      "listId": 7,
-      "text": "Сделали сайдбар",
-      "completed": false,
-      "id": 15
-    },
-    {
-      "listId": 7,
-      "text": "Сделали список задач",
-      "completed": false,
-      "id": 16
-    },
-    {
-      "listId": 7,
-      "text": "Сделали удаление и редактирование задач и списков",
-      "completed": false,
-      "id": 17
     }
   ],
   "colors": [
