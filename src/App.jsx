@@ -6,6 +6,7 @@ import axios from 'axios'
 function App() {
     const [lists, setLists] = useState(null);
     const [colors, setColors] = useState(null);
+    const [activeItem, setActiveItem] = useState(null);
 
 
     useEffect(() => {
@@ -21,6 +22,10 @@ function App() {
         const newList = [...lists, obj];
         setLists(newList);
     };
+
+    const onEditListTitle = (id, title) => {
+        console.log(id, title)
+    }
 
 
     return (
@@ -55,6 +60,10 @@ function App() {
                             const newLists = lists.filter(item => item.id !== id);
                             setLists(newLists)
                         }}
+                        onClickItem={item => {
+                            setActiveItem(item);
+                        }}
+                        activeItem={activeItem}
                         isRemovable
                     />
                 ) : (
@@ -63,7 +72,11 @@ function App() {
                 <AddList onAdd={onAddList} colors={colors}/>
             </div>
             <div className="todo__tasks">
-                {lists && <Tasks list={lists[1]}/>}
+                {lists && activeItem &&
+                <Tasks
+                    list={activeItem}
+                    onEditTitle={onEditListTitle}
+                />}
             </div>
         </div>
     );
