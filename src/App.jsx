@@ -24,9 +24,14 @@ function App() {
     };
 
     const onEditListTitle = (id, title) => {
-        console.log(id, title)
-    }
-
+        const newList = lists.map(item => {
+            if (item.id === id) {
+                item.name = title;
+            }
+            return item;
+        });
+        setLists(newList);
+    };
 
     return (
         <div className="todo">
