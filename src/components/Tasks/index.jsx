@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from "axios";
 
+import AddTaskForm from "./AddTaskForm";
+
 import editSvg from '../../assets/img/edit.svg'
 
 import './Tasks.scss';
 
 
-
-const Tasks = ({ list, onEditTitle }) => {
+const Tasks = ({ list, onEditTitle, onAddTask }) => {
 
     const editTitle = () => {
         const newTitle = window.prompt("Название списка", list.name);
@@ -16,8 +17,8 @@ const Tasks = ({ list, onEditTitle }) => {
             axios.patch("http://localhost:3001/lists/" + list.id, {
                 name: newTitle
             }).catch(() => {
-                alert('Не удалось обновить название списка')
-            })
+                alert('Не удалось обновить название списка !')
+            });
         }
     };
 
@@ -54,6 +55,7 @@ const Tasks = ({ list, onEditTitle }) => {
                         <input readOnly value={task.text}/>
                     </div>
                 ))}
+                <AddTaskForm list={list} onAddTask={onAddTask}/>
             </div>
         </div>
     );

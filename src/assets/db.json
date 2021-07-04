@@ -21,14 +21,14 @@
       "colorId": 2
     },
     {
-      "id": 5,
-      "name": "Личное",
-      "colorId": 1
-    },
-    {
-      "name": "Чики-Мони",
+      "name": "Чики-мони",
       "colorId": 7,
       "id": 6
+    },
+    {
+      "name": "Личное",
+      "colorId": 6,
+      "id": 7
     }
   ],
   "tasks": [
@@ -67,6 +67,42 @@
       "text": "Купить 1984!",
       "completed": false,
       "id": 10
+    },
+    {
+      "listId": 6,
+      "text": "asd",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "listId": 6,
+      "text": "asd",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "listId": 6,
+      "text": "asd",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "listId": 7,
+      "text": "test",
+      "completed": false,
+      "id": 14
+    },
+    {
+      "listId": 7,
+      "text": "fgdf",
+      "completed": false,
+      "id": 15
+    },
+    {
+      "listId": 6,
+      "text": "asd",
+      "completed": false,
+      "id": 16
     }
   ],
   "colors": [

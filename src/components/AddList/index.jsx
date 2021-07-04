@@ -33,14 +33,17 @@ const AddList = ({colors, onAdd}) => {
             return;
         }
         setIsLoading(true);
-        axios.post("http://localhost:3001/lists" , {
+        axios.post("http://localhost:3001/lists", {
             name: inputValue, colorId: selectedColor
-        }).then(({ data }) => {
-            const color = colors.find(c => c.id === selectedColor ).name;
-            const listObj = { ...data, color: { name: color } };
+        }).then(({data}) => {
+            const color = colors.find(c => c.id === selectedColor).name;
+            const listObj = {...data, color: {name: color}};
             onAdd(listObj);
             onClose();
         })
+            .catch(() => {
+                alert('Ошибка при добавлении списка !');
+            })
             .finally(() => {
                 setIsLoading(false);
             })
